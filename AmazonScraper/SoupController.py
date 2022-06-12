@@ -11,6 +11,7 @@ class SoupController:
         return self.soup
 
     def getLinks(self):
+        self.getThatSoup("https://www.amazon.de/s?k=isomatte&crid=IT7HEBYSO3WC&sprefix=isomatt%2Caps%2C165&ref=nb_sb_noss_2")
         bigDiv = self.soup.find_all("div", {"class": "s-matching-dir sg-col-16-of-20 sg-col sg-col-8-of-12 sg-col-12-of-16"})
         self.links = []
         try:
@@ -27,11 +28,14 @@ class SoupController:
         return self.links
 
     def goInThatLinks(self):
+        print(f"Number of items to scan: {len(self.links)}")
         for link in self.links:
             self.WC.get("https://www.amazon.de" + link)
             soup = bs4.BeautifulSoup(self.WC.pageSource, features="html.parser")
             itemParameters = soup.find_all("span", {"class": "a-size-base a-text-bold"})
-            print(itemParameters)
+            otherParams = soup.find_all("th", {"class" : "a-color-secondary a-size-base prodDetSectionEntry"})
+            print("firstParams: ", itemParameters)
+            print("secondParam: ", otherParams)
             newAmazonItem = {}
 
             for param in itemParameters:
@@ -42,15 +46,45 @@ class SoupController:
                         paramValues = parent.find_all("td", {"class": "a-span9"})
                         paramValue = [b.getText() for b in paramValues][0]
                         newAmazonItem[paramName] = paramValue
+
+            table1 = soup.find_all("table", {"id": "productDetails_detailBullets_sections1"})
+            table1Value = self.tableToObject(table1[0])
+            for i in table1Value.keys():
+                print(f"try to set, {i}1")
+                a = table1Value[i]
+                newAmazonItem[i] = table1Value[i]
+
+            table2 = soup.find_all("table", {"id": "productDetails_techSpec_section_1"})
+            table2Value = self.tableToObject(table2[0])
+
+            for i in table2Value.keys():
+                a = table2Value[i]
+                newAmazonItem[i] = a
+
             print(newAmazonItem)
+            print("Scanning next...")
             #brands = [brand.findParent("div", { "class": "a-spacing-small"}) for brand in brands if "Marke" in brand.getText()]
 
             # print(brands)
         self.WC.webdriver.close()
 
+    def tableToObject(self, table):
+        ths = table.find_all("th")
+        tds = table.find_all("td")
+
+        tableObject = {}
+        for (name, value) in zip(ths, tds):
+            newName = name.getText().replace(" ", "")
+
+            tableObject[newName] = value.getText()
+
+        print("TableObject:", tableObject)
+        return tableObject
+
 
 sc = SoupController()
-soup = sc.getThatSoup("https://www.amazon.de/s?k=isomatte&crid=IT7HEBYSO3WC&sprefix=isomatt%2Caps%2C165&ref=nb_sb_noss_2")
+soup = sc.getThatSoup(
+    "https://www.amazon.de/s?k=isomatte&crid=IT7HEBYSO3WC&sprefix=isomatt%2Caps%2C165&ref=nb_sb_noss_2")
 links = sc.getLinks()
 sc.goInThatLinks()
 #print(links)
