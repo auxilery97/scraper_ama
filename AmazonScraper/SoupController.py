@@ -10,8 +10,8 @@ class SoupController:
         self.soup = bs4.BeautifulSoup(self.WC.pageSource, features="html.parser")
         return self.soup
 
-    def getLinks(self):
-        self.getThatSoup("https://www.amazon.de/s?k=isomatte&crid=IT7HEBYSO3WC&sprefix=isomatt%2Caps%2C165&ref=nb_sb_noss_2")
+    def getLinks(self, restartUrl):
+        self.getThatSoup(restartUrl)
         bigDiv = self.soup.find_all("div", {"class": "s-matching-dir sg-col-16-of-20 sg-col sg-col-8-of-12 sg-col-12-of-16"})
         self.links = []
         try:
@@ -113,7 +113,7 @@ sc = SoupController()
 thing_to_search = "Isomatte" ## PARAM
 soup = sc.getThatSoup(
     f"https://www.amazon.de/s?k={thing_to_search}&crid=IT7HEBYSO3WC&sprefix={thing_to_search[-1]}%2Caps%2C165&ref=nb_sb_noss_2")
-links = sc.getLinks()
+links = sc.getLinks(f"https://www.amazon.de/s?k={thing_to_search}&crid=IT7HEBYSO3WC&sprefix={thing_to_search[-1]}%2Caps%2C165&ref=nb_sb_noss_2")
 data = sc.goInThatLinks(3) ## PARAM
 print(data)
 sc.safeToFile(data, "isomatte_data_12-06-2022.txt") ## PARAM
