@@ -110,12 +110,12 @@ class SoupController:
 
 
 sc = SoupController()
-thing_to_search = "Isomatte"
+thing_to_search = "Isomatte" ## PARAM
 soup = sc.getThatSoup(
     f"https://www.amazon.de/s?k={thing_to_search}&crid=IT7HEBYSO3WC&sprefix={thing_to_search[-1]}%2Caps%2C165&ref=nb_sb_noss_2")
 links = sc.getLinks()
-data = sc.goInThatLinks(3)
+data = sc.goInThatLinks(3) ## PARAM
 print(data)
-sc.safeToFile(data, "isomatte_data_12-06-2022.txt")
+sc.safeToFile(data, "isomatte_data_12-06-2022.txt") ## PARAM
 
 #print(links)

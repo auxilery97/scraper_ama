@@ -4694,3 +4694,19 @@ Read port: 51425
 1655057749532	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 JavaScript warning: https://www.amazon.de/s?k=Isomatte&crid=IT7HEBYSO3WC&sprefix=e%2Caps%2C165&ref=nb_sb_noss_2 line 7512 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
 console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.amazon.de"
+1655057860838	geckodriver	INFO	Listening on 127.0.0.1:51532
+1655057863935	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51533" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vinhd\\AppData\\Local\\Temp\\rust_mozprofile3LgRoo"
+1655057864178	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:51533
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\vinhd\\AppData\\Local\\Temp\\rust_mozprofile3LgRoo\\search.json.mozlz4", (void 0)))
+1655057865441	Marionette	INFO	Listening on port 51556
+DevTools listening on ws://localhost:51533/devtools/browser/af96ed57-e049-40a4-adbe-b2823ee6d15b
+Read port: 51556
+1655057865490	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.de/s?k=Isomatte&crid=IT7HEBYSO3WC&sprefix=e%2Caps%2C165&ref=nb_sb_noss_2 line 7694 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.amazon.de"
+JavaScript warning: https://www.amazon.de/s?k=isomatte&crid=IT7HEBYSO3WC&sprefix=isomatt%2Caps%2C165&ref=nb_sb_noss_2 line 7932 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.amazon.de/Idena-38193-Isomatte-mit-Alu-Unterseite/dp/B07954SCDD/ref=sr_1_24?crid=IT7HEBYSO3WC&keywords=isomatte&qid=1655057868&sprefix=isomatt%2Caps%2C165&sr=8-24 line 7783 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.amazon.de/Outdoor-Isomatte-selbstaufblasend-L%C3%A4nge-inkl/dp/B07BGV6J11/ref=sr_1_35_sspa?crid=IT7HEBYSO3WC&keywords=isomatte&qid=1655057868&sprefix=isomatt%2Caps%2C165&sr=8-35-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFTRjZEQUpPRDVDNDImZW5jcnlwdGVkSWQ9QTAzODAzODRLTkZOWUZaUEpUNFEmZW5jcnlwdGVkQWRJZD1BMDE4OTc4OTNDOFdTQlhZWkgySlMmd2lkZ2V0TmFtZT1zcF9tdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl line 7497 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.amazon.de/HIKENTURE-Ultraleicht-Aufblasbar-Luftmatratze-Schlafmatte/dp/B082KF2YWD/ref=sr_1_58?crid=IT7HEBYSO3WC&keywords=isomatte&qid=1655057868&sprefix=isomatt%2Caps%2C165&sr=8-58 line 8854 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://images-eu.ssl-images-amazon.com/images/I/71RSaiJSs-L.js?AUIClients/FWCIMAssets, line 289: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
