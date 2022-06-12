@@ -4668,3 +4668,29 @@ console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkErr
 ###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
 
 [Parent 25464, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+1655056814042	geckodriver	INFO	Listening on 127.0.0.1:60849
+1655056817113	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60850" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vinhd\\AppData\\Local\\Temp\\rust_mozprofilemQ0A0F"
+1655056817370	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:60850
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\vinhd\\AppData\\Local\\Temp\\rust_mozprofilemQ0A0F\\search.json.mozlz4", (void 0)))
+1655056818624	Marionette	INFO	Listening on port 60875
+DevTools listening on ws://localhost:60850/devtools/browser/b051f6a0-38f4-40fd-b895-0f9510fe5ea9
+Read port: 60875
+1655056818689	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.de/s?k=Isomatte&crid=IT7HEBYSO3WC&sprefix=e%2Caps%2C165&ref=nb_sb_noss_2 line 7685 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.amazon.de"
+JavaScript warning: https://www.amazon.de/ line 1955 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.amazon.de/s?k=isomatte&crid=IT7HEBYSO3WC&sprefix=isomatt%2Caps%2C165&ref=nb_sb_noss_2 line 7752 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.amazon.de/Ultraleichte-Aufblasbare-wasserdichte-Feuchtigkeitsbest%C3%A4ndige-Luftmatratze/dp/B09QPP5K1T/ref=sr_1_15?crid=IT7HEBYSO3WC&keywords=isomatte&qid=1655056831&sprefix=isomatt%2Caps%2C165&sr=8-15 line 8370 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.amazon.de/BLUEVER-Aufblasbare-Luftmatratze-Schlafmatte-Feuchtigkeitsbest%C3%A4ndig/dp/B09MLZ62ZD/ref=sxin_16_ac_d_rm?ac_md=1-1-aXNvbWF0dGUgc2VsYnN0YXVmYmxhc2VuZA%3D%3D-ac_d_rm_rm_rm&content-id=amzn1.sym.65c60da3-1aab-40d5-b2d2-9ea9132fdb5e%3Aamzn1.sym.65c60da3-1aab-40d5-b2d2-9ea9132fdb5e&crid=IT7HEBYSO3WC&cv_ct_cx=isomatte&keywords=isomatte&pd_rd_i=B09MLZ62ZD&pd_rd_r=fff749e5-5d16-4ab6-b148-46018ea5cef8&pd_rd_w=uSoo3&pd_rd_wg=eTX23&pf_rd_p=65c60da3-1aab-40d5-b2d2-9ea9132fdb5e&pf_rd_r=V198M36R9DT7QPH82KQE&psc=1&qid=1655056831&sprefix=isomatt%2Caps%2C165&sr=1-2-e2b79f78-a3a0-4cac-b70d-2a5e4ae8e724 line 8259 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1655057744798	geckodriver	INFO	Listening on 127.0.0.1:51396
+1655057747877	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51397" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vinhd\\AppData\\Local\\Temp\\rust_mozprofileil0rdy"
+1655057748119	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:51397
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\vinhd\\AppData\\Local\\Temp\\rust_mozprofileil0rdy\\search.json.mozlz4", (void 0)))
+1655057749448	Marionette	INFO	Listening on port 51425
+DevTools listening on ws://localhost:51397/devtools/browser/6f31a7fc-5b7b-4d43-b278-5d879d655b69
+Read port: 51425
+1655057749532	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.de/s?k=Isomatte&crid=IT7HEBYSO3WC&sprefix=e%2Caps%2C165&ref=nb_sb_noss_2 line 7512 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.amazon.de"

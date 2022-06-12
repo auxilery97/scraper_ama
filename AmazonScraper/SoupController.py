@@ -71,6 +71,14 @@ class SoupController:
             except:
                 print("Could not load tabel on left.")
 
+            ""
+            try:
+                price = soup.find_all("span", {"class": "a-offscreen"})
+
+                newAmazonItem["Preis"] = price[0].getText()
+            except:
+                print("Could not load tabel on left.")
+
             print(newAmazonItem)
             itemsData.append(newAmazonItem)
             print("Scanning next...")
