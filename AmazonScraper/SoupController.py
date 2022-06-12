@@ -27,9 +27,12 @@ class SoupController:
             print("No divs")
         return self.links
 
-    def goInThatLinks(self):
+    def goInThatLinks(self, maxNum):
         print(f"Number of items to scan: {len(self.links)}")
-        for link in self.links:
+        itemsData = []
+        for (idx, link) in enumerate(self.links):
+            if idx >= maxNum:
+                return itemsData
             self.WC.get("https://www.amazon.de" + link)
             soup = bs4.BeautifulSoup(self.WC.pageSource, features="html.parser")
             itemParameters = soup.find_all("span", {"class": "a-size-base a-text-bold"})
@@ -37,36 +40,46 @@ class SoupController:
             print("firstParams: ", itemParameters)
             print("secondParam: ", otherParams)
             newAmazonItem = {}
+            try:
+                for param in itemParameters:
+                    paramName = param.getText()
+                    if (param is not None):
+                        parent = param.findParent("tr", { "class": "a-spacing-small"})
+                        if (parent):
+                            paramValues = parent.find_all("td", {"class": "a-span9"})
+                            paramValue = [b.getText() for b in paramValues][0]
+                            newAmazonItem[paramName] = paramValue
+            except:
+                print("Could not load Parameters below price.")
 
-            for param in itemParameters:
-                paramName = param.getText()
-                if (param is not None):
-                    parent = param.findParent("tr", { "class": "a-spacing-small"})
-                    if (parent):
-                        paramValues = parent.find_all("td", {"class": "a-span9"})
-                        paramValue = [b.getText() for b in paramValues][0]
-                        newAmazonItem[paramName] = paramValue
+            try:
+                table1 = soup.find_all("table", {"id": "productDetails_detailBullets_sections1"})
+                table1Value = self.tableToObject(table1[0])
+                for i in table1Value.keys():
+                    a = table1Value[i]
+                    newAmazonItem[i] = table1Value[i]
+            except:
+                print("Could not load tabel on right.")
 
-            table1 = soup.find_all("table", {"id": "productDetails_detailBullets_sections1"})
-            table1Value = self.tableToObject(table1[0])
-            for i in table1Value.keys():
-                print(f"try to set, {i}1")
-                a = table1Value[i]
-                newAmazonItem[i] = table1Value[i]
+            try:
+                table2 = soup.find_all("table", {"id": "productDetails_techSpec_section_1"})
+                table2Value = self.tableToObject(table2[0])
 
-            table2 = soup.find_all("table", {"id": "productDetails_techSpec_section_1"})
-            table2Value = self.tableToObject(table2[0])
-
-            for i in table2Value.keys():
-                a = table2Value[i]
-                newAmazonItem[i] = a
+                for i in table2Value.keys():
+                    a = table2Value[i]
+                    newAmazonItem[i] = a
+            except:
+                print("Could not load tabel on left.")
 
             print(newAmazonItem)
+            itemsData.append(newAmazonItem)
             print("Scanning next...")
             #brands = [brand.findParent("div", { "class": "a-spacing-small"}) for brand in brands if "Marke" in brand.getText()]
 
             # print(brands)
+        print("Returning: ...", itemsData)
         self.WC.webdriver.close()
+        return itemsData
 
     def tableToObject(self, table):
         ths = table.find_all("th")
@@ -81,10 +94,20 @@ class SoupController:
         print("TableObject:", tableObject)
         return tableObject
 
+    def safeToFile(self, arr, name):
+        import json
+
+        with open(name, 'w') as filehandle:
+            json.dump(arr, filehandle)
+
 
 sc = SoupController()
+thing_to_search = "Isomatte"
 soup = sc.getThatSoup(
-    "https://www.amazon.de/s?k=isomatte&crid=IT7HEBYSO3WC&sprefix=isomatt%2Caps%2C165&ref=nb_sb_noss_2")
+    f"https://www.amazon.de/s?k={thing_to_search}&crid=IT7HEBYSO3WC&sprefix={thing_to_search[-1]}%2Caps%2C165&ref=nb_sb_noss_2")
 links = sc.getLinks()
-sc.goInThatLinks()
+data = sc.goInThatLinks(3)
+print(data)
+sc.safeToFile(data, "isomatte_data_12-06-2022.txt")
+
 #print(links)
